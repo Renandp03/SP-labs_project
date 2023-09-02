@@ -1,17 +1,22 @@
 @use '../variables'
 
+
+.Cases
+    display: grid
+    gap: 80px 32px
+    padding: 80px 0px
+    grid-template-columns: 1fr 1fr
+
 .Cases__Tittle
-    margin: 80px 0px
     h1
-        max-width: 536px
-        height: auto
-        min-height: 144px
+        grid-column: 1
         font-size: 36px
         font-weight: 700
         line-height: 64px
         letter-spacing: -0.54px
         color: variables.$color-cases-tittle
     p
+        grid-column: 1
         color: variables.$color-cases-text
         font-size: 18px
         font-weight: 400
@@ -20,3 +25,9 @@
     span
         text-decoration: line-through
 
+.Case
+    width: auto
+    height: 150px
+    background: variables.$color-normal-button-bg
+    border-radius: 5px
+    

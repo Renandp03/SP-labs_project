@@ -4,11 +4,12 @@ import '../styles/components/Hero-Section.sass'
 function Hero_Section(){
     return(
         <div className='Hero_Section'>
+            <div className='Hero_Background'/>
             <Header/>
             <div className="Hero">
                 <h1 className="Hero__Tittle">Imagine, crie, implemente e <span className="Hero__Tittle--Italic">evolua</span></h1>
                 <p className="Hero__Subtittle">Porque não basta resolver apenas os conflitos do mundo do direito.</p>
-                <button>INICIE A SUA JORNADA</button>
+                <button className='Hero__button'>INICIE A SUA JORNADA</button>
             </div>
         </div>
     )

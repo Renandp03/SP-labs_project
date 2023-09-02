@@ -1,6 +1,7 @@
 @use '../variables'
 
 .Header
+    width: 100%
     display: flex
     align-items: center
     justify-content: space-between
@@ -11,12 +12,16 @@
     font-size: 24px
     font-weight: 800
     line-height: 23px
-
-a
-    font-family: variables.$font-text
-    font-weight: 500
+    font-family: variables.$font-logo
 
 .Header__menu
     display: flex
     gap: 35px
     align-items: center
+
+.Menu__a
+    font-size: 16px
+    font-weight: 500
+    cursor: pointer
+    &:hover
+        text-decoration: inline

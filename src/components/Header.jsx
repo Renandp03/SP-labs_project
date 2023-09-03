@@ -5,8 +5,8 @@ function Header(){
         <div className='Header'>
             <h1 className='Header__logo'>SP labs_</h1>
             <div className='Header__menu'>
-                <a className='Menu__a'>cases</a>
-                <a className='Menu__a'>contato</a>
+                <a className='Menu__a'>Cases</a>
+                <a className='Menu__a'>Contato</a>
             </div>
         </div>
     )

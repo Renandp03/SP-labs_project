@@ -3,7 +3,7 @@ import '../styles/components/Hero-Section.sass'
 
 function Hero_Section(){
     return(
-        <div className='Hero_Section'>
+        <div className='Hero_Section Page'>
             <div className='Hero_Background'/>
             <div className='Hero_Dark_Background'/>
             <Header/>

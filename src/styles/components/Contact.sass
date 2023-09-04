@@ -1,6 +1,49 @@
 @use '../variables'
 
 .Contact
+    display: flex
+    flex-direction: column
+    align-items: center
     padding: 80px 10%
     min-padding: 80px 30px
     max-padding: 80px 100px
+
+.Contact__Tittle
+    color: variables.$second-tittle-color
+    font-size: variables.$second-tittle-size
+    font-weight: variables.$second-tittle-weight
+    line-height: variables.$second-line-height
+    letter-spacing: variables.$second-letter-spacing
+    
+.Contact__Form
+    width: 45%
+    min-width: 330px
+    max-width: 420px
+    height: auto
+
+    display: grid
+    grid-template-columns: 1fr
+
+    gap: 16px
+    padding: 32px
+
+    
+    background: variables.$color-contact-form-bg
+    box-shadow: variables.$box-shadow
+    border-radius: 8px
+
+.Contact__Input
+    padding: 12px 16px
+    box-sizing: border-box
+
+    font-size: 16px
+    line-height: 150%
+
+    border-radius: 4px
+    border: 1px solid #e5e5e5
+    color: variables.$color-contact-input
+    background: variables.$color-contact-input-bg
+    
+    &::placeholder 
+        opacity: 100%
+        color: variables.$color-contact-input

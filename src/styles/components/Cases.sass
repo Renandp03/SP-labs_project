@@ -12,22 +12,26 @@
     @media( max-width: 740px)
         grid-template-columns: 1fr
 
-.Cases__Tittle
+.Cases__Tittle_Space
     grid-column: 1 / -1
-    h1
-        font-size: 36px
-        font-weight: 700
-        line-height: 64px
-        letter-spacing: -0.54px
-        color: variables.$color-cases-tittle
-    p
-        color: variables.$color-cases-text
-        font-size: 18px
-        font-weight: 400
-        line-height: 30px
-        letter-spacing: -0.27px
-    span
-        text-decoration: line-through
+    max-width: 536px
+
+.Cases__Tittle_Space_Tittle
+    font-size: variables.$second-tittle-size
+    font-weight: variables.$second-tittle-weight
+    line-height: variables.$second-tittle-line-height
+    letter-spacing: variables.$second-tittle-letter-spacing
+    color: variables.$color-cases-tittle
+
+.Cases__Tittle_Space_Tittle--line-through
+    text-decoration: line-through
+
+.Case__Tittle_Space__Subtitle
+    color: variables.$color-cases-text
+    font-size: 18px
+    font-weight: 400
+    line-height: 30px
+    letter-spacing: -0.27px
 
 .Case 
     width: auto

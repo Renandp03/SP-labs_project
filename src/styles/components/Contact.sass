@@ -9,6 +9,17 @@
     min-padding: 80px 30px
     max-padding: 80px 100px
     gap: 32px
+    position: relative
+
+.Contact__Decorator
+    width: 50%
+    height: 50%
+    border-radius: 50%
+    background: variables.$color-primary
+    z-index: -1
+    position: absolute
+    bottom: 0
+    left: 0
 
 .Contact__Tittle
     color: variables.$second-tittle-color
@@ -99,6 +110,7 @@ input, textarea, select, option
     line-height: 150%
 
 .Contact__Button
+    width: 100%
     height: auto
     font-size: 14px
     font-weight: 500

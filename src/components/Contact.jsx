@@ -9,12 +9,11 @@ function Contact(){
                 <input className='Contact__Input' placeholder='Seu nome' type='text'/>
                 <input className='Contact__Input' placeholder='Seu email' type='email'/>
 
-                    <select className='Contact__Input--Select'>
-                        <i className='Select__Icon'></i>
+                    <select className='Contact__Select'>
                         <option value="option_0">Seu Segmento</option>
                         <option value="option_1">Opção 1</option>
                         <option value="option_2">Opção 2</option>
-                        <i class="fas fa-chevron-down"></i>
+                        <img src='icons/Expand_More.svg' alt='expand_more' className='Contact__Select_Icon'/>
                     </select>
 
 

@@ -20,6 +20,8 @@
     position: absolute
     bottom: 0
     left: 0
+    filter: blur(100px)
+    z-index: -2
 
 .Contact__Tittle
     color: variables.$second-tittle-color
@@ -52,7 +54,7 @@ input, textarea, select, option
         all: unset
         display: inline-block
 
-.Contact__Input, .Contact__Input--Big, .Contact__Input--Select
+.Contact__Input, .Contact__Input--Big, .Contact__Select
     width: 100%
 
     padding: 12px 16px
@@ -73,17 +75,27 @@ input, textarea, select, option
 .Contact__Input--Big
     min-height: 188px
 
-.Contact__Input--Select
+.Contact__Select
     -webkit-appearance: none
     -moz-appearance: none
     appearance: none
     background: variables.$color-contact-input-bg url('../icons/Expand_More.svg') 95.5% 50% no-repeat
     transition: background-position 0.4s ease-in-out
 
-.Contact__Input--Select:focus
+.Contact__Select_Icon
+    position: absolute
+    top: 50%
+    right: 16px
+    z-index: 2
+
+
+.Contact__Select:focus
     background: variables.$color-contact-input-bg url('../icons/Expand_More.svg') 95.5% 50% no-repeat rotate(180deg)
 
-.Contact__Input:focus, .Contact__Input--Big:focus, .Contact__Input--Select:focus
+        
+.Contact__Input:focus,
+.Contact__Input--Big:focus,
+.Contact__Select:focus
     border: 1px solid variables.$color-primary--dark
 
 .Contact__Checklist

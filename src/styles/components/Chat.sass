@@ -1,6 +1,6 @@
 @use '../variables'
     
-.Chat__Open_button
+.Open_Chat_button
     width: 42px
     height: 42px
     border-radius: 50%
@@ -14,3 +14,91 @@
     &:hover
         background: variables.$color-primary url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M18.5968 12.8656C18.5968 13.3723 18.3955 13.8582 18.0372 14.2164C17.6789 14.5747 17.193 14.776 16.6864 14.776H5.22408L1.40332 18.5968V3.3137C1.40332 2.80704 1.60459 2.32112 1.96286 1.96286C2.32112 1.60459 2.80704 1.40332 3.3137 1.40332H16.6864C17.193 1.40332 17.6789 1.60459 18.0372 1.96286C18.3955 2.32112 18.5968 2.80704 18.5968 3.3137V12.8656Z' stroke='%23343434' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E ") 50% 50% no-repeat
         
+.Chat
+    display: grid
+    grid-template-columns: 1fr
+
+    width: 386px
+    height: auto
+    max-height: 460px
+    padding: 32px 16px 16px 16px
+    align-items: flex-start
+    gap: 16px
+    flex-shrink: 0
+
+    border-radius: 32px
+    border: 1px solid variables.$color-dark-gray
+    background: variables.$color-bright
+
+    position: fixed
+    bottom: 90px
+    right: 32px
+
+    *
+        font-family: variables.$font-Chat
+        
+
+.Chat__Top
+    display: flex
+    padding: 0px 16px
+    justify-content: space-between
+    align-items: center
+    align-self: stretch
+
+.Chat__Top__Avatar
+    width: 40px
+    height: 40px
+    z-index: 2
+
+.Chat__Top__Button
+    display: flex
+
+    padding: 4px 8px
+    justify-content: center
+    align-items: center
+
+    gap: 8px
+
+    font-size: 12px
+    border-radius: 8px
+    border: 1px solid variables.$color-light-gray
+    background: none
+    color: variables.$color-dark-gray
+
+.Chat__Tittle
+    color: variables.$color-dark
+    font-size: 20px
+    font-weight: 400
+    line-height: 64px
+    gap: 10px
+    padding: 0px 16px
+
+.Chat__Timeline--Small
+    width: 354px
+    height: 169px
+    flex-shrink: 0
+
+    border-top: 1px solid variables.$color-dark-gray
+    overflow-y: scroll
+    padding: 0px 32px
+
+.Chat__Send_Bar
+    display: flex
+    align-items: flex-start
+    gap: 8px
+    align-self: stretch
+
+.Chat__Send_Bar_Input
+    font-size: 12px
+    padding: 12.5px 16px
+    border-radius: 16px
+    border: 1px solid variables.$color-dark-gray
+    &::placeholder
+        opacity: 100%
+        color: variables.$color-dark
+
+.Chat__Send_Bar__Button
+    width: 50px
+    height: 40px
+    border-radius: 16px
+    background: variables.$color-primary

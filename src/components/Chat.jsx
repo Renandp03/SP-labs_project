@@ -1,10 +1,19 @@
+import { useState } from 'react'
 import '../styles/components/Chat.sass'
 
 function Chat(){
+
+    const [open,setOpen] = useState(false)
+
+    function openChat(){
+        console.log(!open)
+        setOpen(!open)
+    }
+
     return(
         <>
-            <div className="Open_Chat_button"/>
-            <div className='Chat'>
+            <div className={open ? 'Open_Chat_button--Open' : 'Open_Chat_button'} onClick={openChat}/>
+            <div className={open ? 'Chat' : 'Chat--closed'}>
                 <div className='Chat__Top'>
                     <img src='/imgs/Chat_Avatar.svg' alt='avatar img' className='Chat__Top__Avatar'/>
                     <button className='Chat__Top__Button'>Expandir <img src='/icons/Expand_Chat.svg'/></button>
@@ -14,7 +23,9 @@ function Chat(){
                 </div>
                 <div className='Chat__Send_Bar'>
                     <input className='Chat__Send_Bar_Input' placeholder='Digite sua dúvida'/>
-                    <button className='Chat__Send_Bar__Button'></button>
+                    <button className='Chat__Send_Bar__Button'>
+                        <img className='Chat__Send_Bar__Button__Icon' src='icons/Send_Button_Icon.svg' alt='Send_Button_Icon'/>
+                    </button>
                 </div>
                 
 

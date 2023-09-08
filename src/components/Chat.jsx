@@ -4,10 +4,15 @@ import '../styles/components/Chat.sass'
 function Chat(){
 
     const [open,setOpen] = useState(false)
+    const [expanded,setExpanded] = useState(false)
 
     function openChat(){
-        console.log(!open)
+        setExpanded(false)
         setOpen(!open)
+    }
+
+    function expandChat(){
+        setExpanded(!expanded)
     }
 
     return(
@@ -16,10 +21,14 @@ function Chat(){
             <div className={open ? 'Chat' : 'Chat--closed'}>
                 <div className='Chat__Top'>
                     <img src='/imgs/Chat_Avatar.svg' alt='avatar img' className='Chat__Top__Avatar'/>
-                    <button className='Chat__Top__Button'>Expandir <img src='/icons/Expand_Chat.svg'/></button>
+                    {expanded ? 
+                    <button className='Chat__Top__Button' onClick={expandChat}>Recolher <img src='/icons/Retract_Button_Icon.svg'/></button> : 
+                    <button className='Chat__Top__Button' onClick={expandChat}>Expandir <img src='/icons/Expand_Button_Icon.svg'/></button>}
+                    
                 </div>
                 <h1 className='Chat__Tittle'>🖖 Como posso ajudar?</h1>
-                <div className='Chat__Timeline--Small'>
+                <div className={expanded ? 'Chat__Timeline' : 'Chat__Timeline--Small'}>
+                    <h2 className='Chat__Timeline__Text'>Role para cima para ver o histórico</h2>
                 </div>
                 <div className='Chat__Send_Bar'>
                     <input className='Chat__Send_Bar_Input' placeholder='Digite sua dúvida'/>

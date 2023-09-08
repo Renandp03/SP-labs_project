@@ -31,7 +31,7 @@
 
     width: 386px
     height: auto
-    max-height: 460px
+    min-height: 386px
     padding: 32px 16px 16px 16px
     align-items: flex-start
     gap: 16px
@@ -90,14 +90,38 @@
     gap: 10px
     padding: 0px 16px
 
-.Chat__Timeline--Small
-    width: 354px
-    height: 169px
+.Chat__Timeline, .Chat__Timeline--Small
+    height: 460px
     flex-shrink: 0
 
     border-top: 1px solid variables.$color-dark-gray
     overflow-y: scroll
     padding: 0px 32px
+    display: flex
+    flex-direction: column
+    max-height: 50vh
+
+    justify-content: center
+
+    position: relative
+    transition: all linear .4s
+
+.Chat__Timeline--Small
+    height: 169px
+
+.Chat__Timeline__Text
+    color: variables.$color-gray-2
+    text-align: center
+    font-size: 12px
+    font-style: normal
+    font-weight: 400
+    line-height: normal 
+
+    display: flex
+    justify-content: center
+    align-items: center
+    gap: 4px
+
 
 .Chat__Timeline__Warning
     color: variables.$color-gray-2
@@ -113,6 +137,13 @@
     align-items: flex-start
     gap: 8px
     align-self: stretch
+
+    width: 100%
+
+    position: absolute
+    bottom: 0
+    left: 0
+    padding: 16px 16px
 
 .Chat__Send_Bar_Input
     flex-grow: 1

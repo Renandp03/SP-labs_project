@@ -28,7 +28,7 @@ function Chat(){
                 </div>
                 <h1 className='Chat__Tittle'>🖖 Como posso ajudar?</h1>
                 <div className={expanded ? 'Chat__Timeline' : 'Chat__Timeline--Small'}>
-                    <h2 className='Chat__Timeline__Text'>Role para cima para ver o histórico</h2>
+                    <h2 className='Chat__Timeline__Text'>Role para cima <img src='icons/Arrow_Turn_Up.svg'/>para ver o histórico</h2>
                 </div>
                 <div className='Chat__Send_Bar'>
                     <input className='Chat__Send_Bar_Input' placeholder='Digite sua dúvida'/>

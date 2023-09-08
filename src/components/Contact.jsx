@@ -10,7 +10,7 @@ function Contact(){
     const [segment, setSegment] = useState('option_0')
     const [description,setDescription] = useState('')
     const [accepted,setAccepted] = useState(false)
-    const [message, setMessage] = useState('')
+    const [message, setMessage] = useState()
 
     function sendContact(e){
         e.preventDefault()
@@ -26,6 +26,18 @@ function Contact(){
 
     return(
         <div className="Contact" id='Contact'>
+        {message && 
+            <div className='Contact__Dark_Background'>
+                <div className='Contact__Dark_Background__Message'>
+                    <button className='Contact__Dark_Background__Message__Button' onClick={() => setMessage('')}>
+                        <img className='Contact__Dark_Background__Message__Icon' src='icons/Exit_Icon.svg' alt='exit'/>
+                    </button>
+                    <p className='Contact__Dark_Background__Message__Text'>
+                        {message}
+                    </p>
+                </div>
+            </div>
+        }
             <div className='Contact__Decorator'/>
             <h1 className="Contact__Title">Não fique parado, fale conosco</h1>
             <div className='Contact__Form'>

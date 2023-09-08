@@ -2,7 +2,7 @@ import '../styles/components/Cases.sass'
 
 function Cases(){
     return(
-        <div className='Cases'>
+        <div className='Cases' id='Cases'>
             <div className='Cases__Tittle_Space'>
                 <h1 className='Cases__Tittle_Space__Tittle'>Problemas complexos.<br/> Soluções <span className='Cases__Tittle_Space_Tittle--line-through'>complexas</span> criativas_</h1>
                 <p className='Case__Tittle_Space__Subtitle'>Confira nossos cases de sucesso que vão além do mundo juridico.</p>

@@ -2,7 +2,7 @@ import '../styles/components/Contact.sass'
 
 function Contact(){
     return(
-        <div className="Contact">
+        <div className="Contact" id='Contact'>
             <div className='Contact__Decorator'/>
             <h1 className="Contact__Tittle">Não fique parado, fale conosco</h1>
             <div className='Contact__Form'>

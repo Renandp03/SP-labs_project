@@ -42,18 +42,21 @@
     background: variables.$color-bright
     transition: all linear .4s
 
-    *
-        font-family: variables.$font-Chat
-
-.Chat
     position: fixed
     bottom: 90px
     right: 32px
+    min-left:32px
+
+    *
+        font-family: variables.$font-Chat
+
+    @media( max-width: 500px)
+        left: 50%
+        transform: translate(-50%, 0%)
+
 
 .Chat--closed
-    position: fixed
     bottom: -420px   
-    right: 32px
 
 .Chat__Top
     display: flex

@@ -1,3 +1,4 @@
+import axios from 'axios'
 import { useState } from 'react'
 import '../styles/components/Chat.sass'
 
@@ -5,6 +6,8 @@ function Chat(){
 
     const [open,setOpen] = useState(false)
     const [expanded,setExpanded] = useState(false)
+    const [question,setQuestion] = useState('')
+    const [messages,setMessages] = useState([])
 
     function openChat(){
         setExpanded(false)
@@ -13,6 +16,17 @@ function Chat(){
 
     function expandChat(){
         setExpanded(!expanded)
+    }
+
+    function sendQuestion(e){
+        e.preventDefault()
+        const URL = import.meta.env.VITE_URL
+        setMessages([...messages, {author:'user',message:question}])
+        const body = {question}
+        if(!body.question) {console.log('Pergunta aí, menó'); return null}
+        axios.post(`${URL}/chat`,body)
+        .then((res) => {setQuestion(''); setMessages([...messages, {author:'chat',message: res.data}]) ;console.log(messages)})
+        .catch((err) => console.log(err.name))
     }
 
     return(
@@ -31,8 +45,8 @@ function Chat(){
                     <h2 className='Chat__Timeline__Text'>Role para cima <img src='icons/Arrow_Turn_Up.svg'/>para ver o histórico</h2>
                 </div>
                 <div className='Chat__Send_Bar'>
-                    <input className='Chat__Send_Bar_Input' placeholder='Digite sua dúvida'/>
-                    <button className='Chat__Send_Bar__Button'>
+                    <input className='Chat__Send_Bar_Input' placeholder='Digite sua dúvida' value={question} onChange={e => setQuestion(e.target.value)}/>
+                    <button className='Chat__Send_Bar__Button' onClick={sendQuestion}>
                         <img className='Chat__Send_Bar__Button__Icon' src='icons/Send_Button_Icon.svg' alt='Send_Button_Icon'/>
                     </button>
                 </div>

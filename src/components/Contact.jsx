@@ -29,9 +29,7 @@ function Contact(){
         {message && 
             <div className='Contact__Dark_Background'>
                 <div className='Contact__Dark_Background__Message'>
-                    <button className='Contact__Dark_Background__Message__Button' onClick={() => setMessage('')}>
-                        <img className='Contact__Dark_Background__Message__Icon' src='icons/Exit_Icon.svg' alt='exit'/>
-                    </button>
+                    <img className='Contact__Dark_Background__Message__Icon' src='icons/Exit_Icon.svg' alt='exit' onClick={() => setMessage('')}/>
                     <p className='Contact__Dark_Background__Message__Text'>
                         {message}
                     </p>

@@ -93,18 +93,19 @@
     padding: 0px 16px
 
 .Chat__Timeline, .Chat__Timeline--Small
-    height: 460px
-    flex-shrink: 0
+
+    height: 50vh
 
     border-top: 1px solid variables.$color-dark-gray
     overflow-y: scroll
     padding: 0px 32px
-    display: flex
-    flex-direction: column
-    max-height: 50vh
-    gap: 16px
 
+    display: grid
+    grid-template-columns: 1fr
+    align-items: center
     justify-content: center
+    gap: 16px
+    margin-bottom: 40px
 
     position: relative
     transition: all linear .4s
@@ -125,23 +126,32 @@
     align-items: center
     gap: 4px
 
-.Chat__Timeline__Warning
-    color: variables.$color-gray-2
-    text-align: center
-    font-family: Inter
-    font-size: 12px
-    font-style: normal
-    font-weight: 400
-    line-height: normal
+.Chat__Timeline__Message_Space,
+.Chat__Timeline__Message_Space--Chat_message,
+.Chat__Timeline__Message_Space--User_Message
+    display: flex
+    align-items: center
+    justify-content: center
 
-.Chat__Timeline__Message
+.Chat__Timeline__Message_Space--Chat_message
+    justify-content: flex-start
+    img
+        width: 24px
+        height: 24px
+    .Chat_Timeline__Message_Space__Message
+        border-radius: 0px 16px 16px 16px
+        background: variables.$color-light-gray
+
+.Chat__Timeline__Message_Space--User_Message
+    justify-content: flex-end
+
+.Chat__Timeline__Message_Space__Text
     color: variables.$color-dark
     font-size: 12px
     font-style: normal
     font-weight: 400
     line-height: normal 
     padding: 8px 16px
-    display: flex
 
 .Chat__Send_Bar
     display: flex

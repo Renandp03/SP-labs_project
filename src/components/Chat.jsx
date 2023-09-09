@@ -29,6 +29,9 @@ function Chat(){
         const newUserMessage = {author:'user',message:question, date:formatDate(new Date())}
         const body = {question}
         if(!body.question) {console.log('Pergunta aí, menó'); return null}
+        setMessages([...messages, newUserMessage])
+        setQuestion('')
+
         axios.post(`${URL}/chat`,body)
         .then((res) => {
             const newChatMessage = {author:'chat', message:res.data, date:formatDate(new Date())}
@@ -39,6 +42,7 @@ function Chat(){
         .catch((err) => console.log(err.name))
     }
 
+    useEffect(() => {console.log(messages)},[messages])
 
     return(
         <>
@@ -52,8 +56,25 @@ function Chat(){
                     
                 </div>
                 <h1 className='Chat__Tittle'>🖖 Como posso ajudar?</h1>
+
                 <div className={expanded ? 'Chat__Timeline' : 'Chat__Timeline--Small'}>
-                    <h2 className='Chat__Timeline__Text'>Role para cima <img src='icons/Arrow_Turn_Up.svg'/>para ver o histórico</h2>
+
+                    { messages.length > 0 ? 
+
+                        messages.map((m) => {
+
+                            {
+                                m.author == 'user' ? <div className='Chat__Timeline__Message_Space'>
+                                    //fazer a parte do user message
+                                </div> : 
+                                m.author=='chat' ? <div className='Chat__Timeline__Message_Space'>
+                                    //fazer a parte do chat message
+                                </div> : 
+                                <></>
+                            }
+                        }) :
+                        <h2 className='Chat__Timeline__Text'>Role para cima <img src='icons/Arrow_Turn_Up.svg'/>para ver o histórico</h2>
+                    }
                 </div>
                 <div className='Chat__Send_Bar'>
                     <input className='Chat__Send_Bar_Input' placeholder='Digite sua dúvida' value={question} onChange={e => setQuestion(e.target.value)}/>

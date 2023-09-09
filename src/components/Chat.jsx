@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import '../styles/components/Chat.sass'
 
 function Chat(){
@@ -18,16 +18,27 @@ function Chat(){
         setExpanded(!expanded)
     }
 
+    function formatDate(date) {
+        const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
+        return new Date(date).toLocaleDateString(undefined, options);
+      }
+
     function sendQuestion(e){
         e.preventDefault()
         const URL = import.meta.env.VITE_URL
-        setMessages([...messages, {author:'user',message:question}])
+        const newUserMessage = {author:'user',message:question, date:formatDate(new Date())}
         const body = {question}
         if(!body.question) {console.log('Pergunta aí, menó'); return null}
         axios.post(`${URL}/chat`,body)
-        .then((res) => {setQuestion(''); setMessages([...messages, {author:'chat',message: res.data}]) ;console.log(messages)})
+        .then((res) => {
+            const newChatMessage = {author:'chat', message:res.data, date:formatDate(new Date())}
+            const updatedMessages = [...messages, newUserMessage, newChatMessage ]
+            setMessages(updatedMessages)
+            setQuestion('')
+        })
         .catch((err) => console.log(err.name))
     }
+
 
     return(
         <>

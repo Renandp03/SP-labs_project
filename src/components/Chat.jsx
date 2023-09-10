@@ -60,19 +60,15 @@ function Chat(){
                 <div className={expanded ? 'Chat__Timeline' : 'Chat__Timeline--Small'}>
 
                     { messages.length > 0 ? 
-
-                        messages.map((m) => {
-
-                            {
-                                m.author == 'user' ? <div className='Chat__Timeline__Message_Space'>
-                                    //fazer a parte do user message
-                                </div> : 
-                                m.author=='chat' ? <div className='Chat__Timeline__Message_Space'>
-                                    //fazer a parte do chat message
-                                </div> : 
-                                <></>
-                            }
-                        }) :
+                        messages.map((m) => 
+                        <div className={m.author == 'user' ? 'Chat__Timeline__Message_Space--User_Message' : 'Chat__Timeline__Message_Space--Chat_message'}>
+                            {m.author == 'chat' && <img src="imgs/Chat_Avatar.svg" alt="Chat_Avatar"/>}
+                            <p className='Chat__Timeline__Message_Space__Text'>
+                                {m.message}
+                            </p>
+                        </div>
+                        )
+                         :
                         <h2 className='Chat__Timeline__Text'>Role para cima <img src='icons/Arrow_Turn_Up.svg'/>para ver o histórico</h2>
                     }
                 </div>

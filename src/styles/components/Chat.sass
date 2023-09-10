@@ -100,10 +100,9 @@
     overflow-y: scroll
     padding: 0px 32px
 
-    display: grid
-    grid-template-columns: 1fr
+    display: flex
+    flex-direction: column
     align-items: center
-    justify-content: center
     gap: 16px
     margin-bottom: 40px
 
@@ -130,20 +129,25 @@
 .Chat__Timeline__Message_Space--Chat_message,
 .Chat__Timeline__Message_Space--User_Message
     display: flex
-    align-items: center
+    align-items: flex-start
     justify-content: center
+    gap: 4px
 
 .Chat__Timeline__Message_Space--Chat_message
     justify-content: flex-start
     img
         width: 24px
         height: 24px
-    .Chat_Timeline__Message_Space__Message
+    .Chat__Timeline__Message_Space__Text
         border-radius: 0px 16px 16px 16px
         background: variables.$color-light-gray
 
 .Chat__Timeline__Message_Space--User_Message
     justify-content: flex-end
+    .Chat__Timeline__Message_Space__Text
+        border: 1px solid variables.$color-gray-3
+        border-radius: 16px 16px 0px 16px
+    
 
 .Chat__Timeline__Message_Space__Text
     color: variables.$color-dark

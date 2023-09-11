@@ -11,9 +11,11 @@
     grid-template-columns: 1fr 1fr
     @media( max-width: 740px)
         grid-template-columns: 1fr
+        gap: 32px 0
 
 .Cases__Title_Space
     grid-column: 1 / -1
+    margin-bottom: 48px
 
 .Cases__Title_Space__Title, .Cases__Title_Space_Title--line-through
     font-size: variables.$second-title-size
@@ -21,6 +23,8 @@
     line-height: variables.$second-title-line-height
     letter-spacing: variables.$second-title-letter-spacing
     color: variables.$color-cases-title
+    @media( max-width: 740px)
+        font-size: variables.$second-title-size-mobile
 
 .Cases__Title_Space_Title--line-through
     text-decoration: line-through

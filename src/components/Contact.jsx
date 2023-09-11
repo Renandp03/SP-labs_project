@@ -48,9 +48,7 @@ function Contact(){
                         <option value="option_2">Opção 2</option>
                         <img src='icons/Expand_More.svg' alt='expand_more' className='Contact__Select_Icon'/>
                     </select>
-
-
-
+                    
                 <textarea 
                     className='Contact__Input--Big' 
                     placeholder='Fale um pouco sobre o seu negócio' 

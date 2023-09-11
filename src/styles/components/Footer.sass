@@ -63,21 +63,22 @@
     display: block
     position: relative
 
-.Footer__Credits__Column__Links::after
-    content: ''
-    position: absolute
-    bottom: 0
-    left: 0
-    width: 100%
-    height: 1px
-    background-color: variables.$color-dark-gray
-    opacity: 0
-    transition: opacity 300ms, transform 300ms
+.Footer__Credits__Column__Links 
+  display: inline-block
 
-.Footer__Credits__Column__Links:hover::after,
-.Footer__Credits__Column__Links:focus::after
-    opacity: 1
-    transform: translate3d(0, 0.2em, 0)
+
+.Footer__Credits__Column__Links::after 
+  content: ''
+  width: 0px
+  height: 1px
+  display: block
+  background: black
+  transition: 300ms
+
+
+.Footer__Credits__Column__Links:hover::after 
+  width: 100%
+
 
 .Footer_Section__Line
     width: 100%

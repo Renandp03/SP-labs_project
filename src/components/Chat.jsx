@@ -7,7 +7,8 @@ function Chat(){
     const [open,setOpen] = useState(false)
     const [expanded,setExpanded] = useState(false)
     const [question,setQuestion] = useState('')
-    const [messages,setMessages] = useState([{date:'10/09/2023',messages:[{author:'user',message:'oi chat'},{author:'chat',message:'oi Renan'}]}])
+    const [messages,setMessages] = useState([])
+    const [newMessageInfo,setNewMessageInfo] = useState('')
 
     function openChat(){
         setExpanded(false)
@@ -25,10 +26,11 @@ function Chat(){
 
     function createMessage(author,message){
         const newMessage = {author, message, date:formatDate(new Date())}
-        addMessage(newMessage)
+        setNewMessageInfo(newMessage)
     }
 
     async function addMessage(newMessage){
+        if(newMessage == '') return null
         const messagesCopy = [...messages]
         const existingDate = messagesCopy.find((n) => n.date === newMessage.date)
         if(existingDate){
@@ -47,16 +49,16 @@ function Chat(){
         if(!body.question) {console.log('Pergunta aí, menó'); return null}
 
         try {
-            await createMessage('user',userQuestion)
+            createMessage('user',userQuestion)
             const res = await axios.post(`${URL}/chat`,body)
             const chatMessage = res.data
-            await createMessage('chat',chatMessage)
+            createMessage('chat',chatMessage)
         } catch (err) {
             console.log(err.name)
         }
     }
 
-    useEffect(() => {console.log(messages)},[messages])
+    useEffect(() => {addMessage(newMessageInfo)},[newMessageInfo])
 
     return(
         <>

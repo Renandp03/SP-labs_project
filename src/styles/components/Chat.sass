@@ -102,7 +102,7 @@
 
     display: flex
     flex-direction: column
-    gap: 16px
+    gap: 32px
     margin-bottom: 42px
 
     position: relative
@@ -138,6 +138,12 @@
     justify-content: center
     gap: 4px
 
+.Chat__Timeline__Message_Space
+    .Chat__Timeline__Message_Space__Text
+        border: 1px solid variables.$color-light-gray
+        border-radius: 8px
+        padding: 4px 8px
+
 .Chat__Timeline__Message_Space--Chat_message
     justify-content: flex-start
     img
@@ -146,12 +152,45 @@
     .Chat__Timeline__Message_Space__Text
         border-radius: 0px 16px 16px 16px
         background: variables.$color-light-gray
+        margin-right: 52px
 
 .Chat__Timeline__Message_Space--User_Message
     justify-content: flex-end
     .Chat__Timeline__Message_Space__Text
         border: 1px solid variables.$color-gray-3
         border-radius: 16px 16px 0px 16px
+        margin-left: 62px
+
+.Chat__Timeline__Date
+    display: flex
+    flex-direction: column
+    gap: 16px
+
+.Chat__Timeline__Date__Message
+    align-self: center
+    border: 1px solid variables.$color-light-gray
+    border-radius: 8px
+    padding: 4px 8px
+    font-size: 10px
+    color: variables.$color-dark-gray
+
+.Chat__Timeline__Date__Message--User
+    align-self: flex-end
+    color: variables.$color-dark
+    border: 1px solid variables.$color-gray-3
+    border-radius: 16px 16px 0px 16px
+    padding: 4px 8px
+    margin-left: 62px 
+
+.Chat__Timeline__Date__Chat_Space
+    display: flex
+    gap: 4px
+.Chat__Timeline__Date__Message--Chat
+    align-self: flex-start
+    color: variables.$color-dark
+    border-radius: 0px 16px 16px 16px
+    padding: 4px 8px
+    margin-right: 52px 
     
 
 .Chat__Timeline__Message_Space__Text

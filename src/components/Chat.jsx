@@ -23,21 +23,32 @@ function Chat(){
         return new Date(date).toLocaleDateString(undefined, options);
       }
 
-    function sendQuestion(e){
-        e.preventDefault()
+    function createMensage(author,message){
+        const newMessage = {author, message, date:formatDate(new Date())}
+        addMessage(newMessage)
+    }
+
+    function addMessage(newMessage){
+        const messagesCopy = [...messages]
+        const existingDate = messagesCopy.find((n) => n.date === newMessage.date)
+        if(existingDate){
+            existingDate.messages.push({author: newMessage.author,message:newMessage.message})
+        }
+        else{
+            messagesCopy.push({date:newMessage.date,messages:[{author:newMessage.author,message:newMessage.message}]})
+        }
+        setMessages(messagesCopy)
+    }
+
+    function getAnswer(userQuestion){
         const URL = import.meta.env.VITE_URL
-        const newUserMessage = {author:'user',message:question, date:formatDate(new Date())}
-        const body = {question}
-        if(!body.question) {console.log('Pergunta aí, menó'); return null}
-        setMessages([...messages, newUserMessage])
+        const body = {question:userQuestion}
         setQuestion('')
+        if(!body.question) {console.log(body); return null}
 
         axios.post(`${URL}/chat`,body)
         .then((res) => {
-            const newChatMessage = {author:'chat', message:res.data, date:formatDate(new Date())}
-            const updatedMessages = [...messages, newUserMessage, newChatMessage ]
-            setMessages(updatedMessages)
-            setQuestion('')
+            createMensage('chat',res.data)
         })
         .catch((err) => console.log(err.name))
     }
@@ -50,9 +61,14 @@ function Chat(){
             <div className={open ? 'Chat' : 'Chat--closed'}>
                 <div className='Chat__Top'>
                     <img src='/imgs/Chat_Avatar.svg' alt='avatar img' className='Chat__Top__Avatar'/>
-                    {expanded ? 
-                    <button className='Chat__Top__Button' onClick={expandChat}>Recolher <img src='/icons/Retract_Button_Icon.svg'/></button> : 
-                    <button className='Chat__Top__Button' onClick={expandChat}>Expandir <img src='/icons/Expand_Button_Icon.svg'/></button>}
+                    
+                    <button className='Chat__Top__Button' onClick={expandChat}>
+                        {
+                            expanded ? 
+                            <>Recolher <img src='/icons/Retract_Button_Icon.svg'/></> :
+                            <>Expandir <img src='/icons/Expand_Button_Icon.svg'/></>
+                        }
+                     </button> 
                     
                 </div>
                 <h1 className='Chat__Tittle'>🖖 Como posso ajudar?</h1>
@@ -60,13 +76,19 @@ function Chat(){
                 <div className={expanded ? 'Chat__Timeline' : 'Chat__Timeline--Small'}>
 
                     { messages.length > 0 ? 
-                        messages.map((m) => 
-                        <div className={m.author == 'user' ? 'Chat__Timeline__Message_Space--User_Message' : 'Chat__Timeline__Message_Space--Chat_message'}>
-                            {m.author == 'chat' && <img src="imgs/Chat_Avatar.svg" alt="Chat_Avatar"/>}
-                            <p className='Chat__Timeline__Message_Space__Text'>
-                                {m.message}
-                            </p>
-                        </div>
+                        messages.map((d) =>
+                        <div className='Chat__Timeline__Date'>
+                            <p className='Chat__Timeline__Date__Message'>{d.date}</p>
+                            {d.messages.map((m) => 
+                                <div className={m.author == 'user' ? 'Chat__Timeline__Message_Space--User_Message' : 'Chat__Timeline__Message_Space--Chat_message'}>
+                                    {m.author == 'chat' && <img src="imgs/Chat_Avatar.svg" alt="Chat_Avatar"/>}
+                                    <p className='Chat__Timeline__Message_Space__Text'>
+                                        {m.message}
+                                    </p>
+                                </div>
+                            )}
+                            
+                        </div> 
                         )
                          :
                         <h2 className='Chat__Timeline__Text'>Role para cima <img src='icons/Arrow_Turn_Up.svg'/>para ver o histórico</h2>
@@ -74,7 +96,7 @@ function Chat(){
                 </div>
                 <div className='Chat__Send_Bar'>
                     <input className='Chat__Send_Bar_Input' placeholder='Digite sua dúvida' value={question} onChange={e => setQuestion(e.target.value)}/>
-                    <button className='Chat__Send_Bar__Button' onClick={sendQuestion}>
+                    <button className='Chat__Send_Bar__Button' onClick={() => {createMensage('user',question);getAnswer(question)}}>
                         <img className='Chat__Send_Bar__Button__Icon' src='icons/Send_Button_Icon.svg' alt='Send_Button_Icon'/>
                     </button>
                 </div>

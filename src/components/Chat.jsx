@@ -7,7 +7,7 @@ function Chat(){
     const [open,setOpen] = useState(false)
     const [expanded,setExpanded] = useState(false)
     const [question,setQuestion] = useState('')
-    const [messages,setMessages] = useState([])
+    const [messages,setMessages] = useState([{date:'10/09/2023',messages:[{author:'user',message:'oi chat'},{author:'chat',message:'oi Renan'}]}])
 
     function openChat(){
         setExpanded(false)
@@ -23,12 +23,12 @@ function Chat(){
         return new Date(date).toLocaleDateString(undefined, options);
       }
 
-    function createMensage(author,message){
+    function createMessage(author,message){
         const newMessage = {author, message, date:formatDate(new Date())}
         addMessage(newMessage)
     }
 
-    function addMessage(newMessage){
+    async function addMessage(newMessage){
         const messagesCopy = [...messages]
         const existingDate = messagesCopy.find((n) => n.date === newMessage.date)
         if(existingDate){
@@ -40,17 +40,20 @@ function Chat(){
         setMessages(messagesCopy)
     }
 
-    function getAnswer(userQuestion){
+    async function getAnswer(userQuestion){
         const URL = import.meta.env.VITE_URL
         const body = {question:userQuestion}
         setQuestion('')
-        if(!body.question) {console.log(body); return null}
+        if(!body.question) {console.log('Pergunta aí, menó'); return null}
 
-        axios.post(`${URL}/chat`,body)
-        .then((res) => {
-            createMensage('chat',res.data)
-        })
-        .catch((err) => console.log(err.name))
+        try {
+            await createMessage('user',userQuestion)
+            const res = await axios.post(`${URL}/chat`,body)
+            const chatMessage = res.data
+            await createMessage('chat',chatMessage)
+        } catch (err) {
+            console.log(err.name)
+        }
     }
 
     useEffect(() => {console.log(messages)},[messages])
@@ -96,7 +99,7 @@ function Chat(){
                 </div>
                 <div className='Chat__Send_Bar'>
                     <input className='Chat__Send_Bar_Input' placeholder='Digite sua dúvida' value={question} onChange={e => setQuestion(e.target.value)}/>
-                    <button className='Chat__Send_Bar__Button' onClick={() => {createMensage('user',question);getAnswer(question)}}>
+                    <button className='Chat__Send_Bar__Button' onClick={async() => {await getAnswer(question)}}>
                         <img className='Chat__Send_Bar__Button__Icon' src='icons/Send_Button_Icon.svg' alt='Send_Button_Icon'/>
                     </button>
                 </div>

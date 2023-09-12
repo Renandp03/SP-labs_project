@@ -4,10 +4,11 @@ import '../styles/components/Hero-Section.sass'
 function Hero_Section(){
     return(
         <div className='Hero_Section'>
-            <div className='Hero_Background'>
-            <div className='Hero_Dark_Background_filter'/>
+            <div className='Hero_Section__bg'>
+                <img src='imgs/background_image.png' alt='img' className='Hero_Section__bg__Img'/>
+                <div className='Hero_Section__bg__Dark'/>
+                <div className='Hero_Section__bg__Dark--mix'/>
             </div>
-            <div className='Hero_Dark_Background'/>
             <Header/>
             <div className="Hero">
                 <h1 className="Hero__Title">Imagine, crie, <br/> implemente e <span className="Hero__Title--Italic">evolua</span></h1>

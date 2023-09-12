@@ -13,38 +13,43 @@
     @media( max-width: 740px)
         padding: 0px 30px
 
-.Hero_Dark_Background,
-.Hero_Dark_Background_filter
+.Hero_Section__bg
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100vh
+    background: black
+    z-index: -3
+
+.Hero_Section__bg__Img
     position: absolute
     top: 0
     left: 0
     width: 100%
     height: 100%
-    background: #1e1e1e
-    opacity: .4
-    background-size: cover
-    background-repeat: no-repeat
-    background-position: top center
-    z-index: -1
-
-.Hero_Dark_Background_filter
-    mix-blend-mode: color
+    object-fit: cover
     z-index: -3
 
+.Hero_Section__bg__Dark
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    z-index: -3
+    opacity: .5
+    background: #1e1e1e
 
-
-.Hero_Background 
-  position: absolute
-  top: 0
-  left: 0
-  width: 100%
-  height: 100%
-  background-image: url('/imgs/background_image.png')
-  background-size: cover
-  background-repeat: no-repeat
-  background-position: top center
-  filter: grayscale(100)
-  z-index: -2
+.Hero_Section__bg__Dark--mix
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    z-index: -3
+    mix-blend-mode: color
+    background: #1e1e1e
 
 .Hero
     display: flex
@@ -75,7 +80,6 @@
     line-height: 72px
     letter-spacing: -1.185px
     
-
 .Hero__Subtitle
     font-size: 18px
     font-style: normal
@@ -107,7 +111,6 @@
     @media( max-width: 450px)
         width: 100%
     
-
 .Text_Div
     width: 288px
     height: 288px

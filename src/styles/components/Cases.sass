@@ -2,32 +2,44 @@
 
 
 .Cases
+    position: relative
     display: grid
     gap: 80px 32px
-    padding: 80px 10%
-    min-padding: 80px 30px
-    max-padding: 80px 100px
+    padding: 80px 100px
     box-sizing: border-box
     grid-template-columns: 1fr 1fr
     @media( max-width: 740px)
         grid-template-columns: 1fr
         gap: 32px 0
+        padding: 80px 30px
+
 
 .Cases__Title_Space
     grid-column: 1 / -1
-    margin-bottom: 48px
+    max-width: 536px
+    display: flex
+    flex-direction: column
+    gap: 16px
+    @media( max-width: 740px)
+        margin-bottom: 48px
 
-.Cases__Title_Space__Title, .Cases__Title_Space_Title--line-through
+.Cases__Title_Space__Title,
+.Cases__Title_Space_Title--line-through,
+.Cases__Title_Space_Title--italic
     font-size: variables.$second-title-size
     font-weight: variables.$second-title-weight
     line-height: variables.$second-title-line-height
     letter-spacing: variables.$second-title-letter-spacing
     color: variables.$color-cases-title
+    font-style: normal
     @media( max-width: 740px)
         font-size: variables.$second-title-size-mobile
 
 .Cases__Title_Space_Title--line-through
     text-decoration: line-through
+
+.Cases__Title_Space_Title--italic
+    font-style: italic
 
 .Case__Title_Space__Subtitle
     color: variables.$color-cases-text
@@ -40,7 +52,6 @@
     width: auto
     min-width: 330px
     height: auto
-    border-radius: 5px
     display: flex
     flex-direction: column
     gap: 16px
@@ -54,6 +65,7 @@
 .Case__text
     color: variables.$color-cases-text
     font-size: 18px
+    font-style: normal
     font-weight: 400
     line-height: 30px
     letter-spacing: -0.27px

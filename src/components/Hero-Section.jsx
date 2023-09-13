@@ -13,7 +13,7 @@ function Hero_Section(){
             <div className="Hero">
                 <h1 className="Hero__Title">Imagine, crie, <br/> implemente e <span className="Hero__Title--Italic">evolua</span></h1>
                 <p className="Hero__Subtitle">Porque não basta resolver apenas os conflitos do mundo do direito.</p>
-                <button className='Hero__button'>INICIE A SUA JORNADA</button>
+                <a href='#Cases'><button className='Hero__button'>INICIE A SUA JORNADA</button></a>
             </div>
         </div>
     )

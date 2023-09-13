@@ -58,20 +58,21 @@
     cursor: pointer
 
 .Contact__Decorator
-    width: 50%
+    width: 40%
     height: 50%
     border-radius: 50%
     background: variables.$color-primary
     z-index: -1
     position: absolute
-    bottom: 0
-    left: 0
-    filter: blur(100px)
+    bottom: -150px
+    left: 100px
+    filter: blur(80px)
     z-index: -2
 
-    padding: 0 10%
-    min-padding: 0 30px
-    max-padding: 0 100px
+    @media( max-width: 740px)
+        left: 0
+        filter: blur(55px)
+        
 
 .Contact__Title
     color: variables.$second-title-color
@@ -144,7 +145,6 @@ input, textarea, select, option
 
 .Contact__Select:focus
     background: variables.$color-contact-input-bg url('../icons/Expand_More.svg') 95.5% 50% no-repeat rotate(180deg)
-
         
 .Contact__Input:focus,
 .Contact__Input--Big:focus,

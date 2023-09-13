@@ -43,12 +43,13 @@
 .Cases__Title_Space_Title--italic
     font-style: italic
 
-.Case__Title_Space__Subtitle
+.Case__Title_Space__Subtitle,
+.Case__text
     color: variables.$color-cases-text
-    font-size: 18px
-    font-weight: 400
-    line-height: 30px
-    letter-spacing: -0.27px
+    font-size: variables.$second-text-size
+    font-weight: variables.$second-text-weight
+    line-height: variables.$second-text-line-height
+    letter-spacing: variables.$second-text-letter-spacing
 
 .Case 
     width: auto
@@ -62,15 +63,7 @@
     font-size: 24px
     font-weight: 700
     line-height: 36px
-    letter-spacing: -0.36px
-
-.Case__text
-    color: variables.$color-cases-text
-    font-size: 18px
-    font-style: normal
-    font-weight: 400
-    line-height: 30px
-    letter-spacing: -0.27px
+    letter-spacing: -0.36px   
 
 .Case__Button
     display: flex

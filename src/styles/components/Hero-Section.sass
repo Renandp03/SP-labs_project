@@ -61,21 +61,25 @@
         width: 100%
 
 .Hero__Title
-    font-family: Roboto
-    font-size: 64px
-    font-weight: 700
-    line-height: 72px
-    letter-spacing: -0.96px
+    font-size: variables.$primary-title-size
+    font-weight: variables.$primary-title-font-weight
+    line-height: variables.$primary-title-line-height
+    letter-spacing: variables.$second-title-letter-spacing
+
     @media( max-width: 790px)
-        font-size: 56px
-        letter-spacing: -0.84px
+        font-size: variables.$primary-title-size-mobile
+        letter-spacing: variables.$primary-title-letter-spacing-mobile
+
+.Hero__Title__Wrap
+    @media( max-width: 790px)
+        margin-right: 100px
 
 @font-face 
     font-family: Bodoni72
     src: url('fonts/Bodoni72/1574087879937-Bodoni-72-Book-Italic.otf') format('opentype')
 
 .Hero__Title--Italic
-    font-family: Bodoni72
+    font-family: variables.$primary-title-italic-font
     font-size: 79px
     font-weight: 400
     line-height: 72px
@@ -83,7 +87,6 @@
     @media( max-width: 790px)
         font-size: 73px
         font-style: italic
-        font-weight: 400
         letter-spacing: -1.095px
     
 .Hero__Subtitle
@@ -97,7 +100,6 @@
     display: flex
     justify-content: center
     width: 240px
-    max-width: 330px
     height: auto
     font-size: 14px
     font-weight: 500

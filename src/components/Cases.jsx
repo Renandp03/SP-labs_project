@@ -24,7 +24,7 @@ function Cases(){
             {
             cases.map((c) => 
             <div className='Case'>
-                <h2 className='Case__Title' onClick={getCases}>{c.title}</h2>
+                <h2 className='Case__Title'>{c.title}</h2>
                 <p className='Case__text'>{c.description}</p>
                 <button className='Case__Button'><a href={c.link}>Saiba mais</a><img className='Button__Icon' src='icons/arrow-right.svg'/></button>
             </div>)

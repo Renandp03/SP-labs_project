@@ -8,13 +8,13 @@ function Footer(){
                 <div className='Footer__Credits'>
                     <div className='Footer__Credits__Column'>
                         <h2 className='Footer__Credits__Column__Title'>SP Labs</h2>
-                        <div><a href="/" className='Footer__Credits__Column__Links'>Política de privacidade</a></div>
+                        <div><a href="/" className='Footer__Credits__Column__Link'>Política de privacidade</a></div>
                     </div>
                     <div className='Footer__Credits__Column'>
                         <h2 className='Footer__Credits__Column__Title'>Sem Processo</h2>
-                        <div><a href="/" className='Footer__Credits__Column__Links'>Site</a></div>
-                        <div><a href="/" className='Footer__Credits__Column__Links'>Produtos</a></div>
-                        <div><a href="/" className='Footer__Credits__Column__Links'>Blog</a></div>
+                        <div><a href="/" className='Footer__Credits__Column__Link'>Site</a></div>
+                        <div><a href="/" className='Footer__Credits__Column__Link'>Produtos</a></div>
+                        <div><a href="/" className='Footer__Credits__Column__Link'>Blog</a></div>
                     </div>
                 </div>
             </div>

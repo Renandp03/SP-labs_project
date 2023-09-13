@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import '../styles/components/Chat.sass'
 
 function Chat(){
@@ -9,6 +9,7 @@ function Chat(){
     const [question,setQuestion] = useState('')
     const [messages,setMessages] = useState([])
     const [newMessageInfo,setNewMessageInfo] = useState('')
+    const messagesRef = useRef(null)
 
     function openChat(){
         setExpanded(false)
@@ -59,6 +60,7 @@ function Chat(){
     }
 
     useEffect(() => {addMessage(newMessageInfo)},[newMessageInfo])
+    useEffect(() => {if(messagesRef.current){messagesRef.current.scrollTop = messagesRef.current.scrollHeight}}, [messages])
 
     return(
         <>
@@ -78,7 +80,7 @@ function Chat(){
                 </div>
                 <h1 className='Chat__Tittle'>🖖 Como posso ajudar?</h1>
 
-                <div className={expanded ? 'Chat__Timeline' : 'Chat__Timeline--Small'}>
+                <div ref={messagesRef} className={expanded ? 'Chat__Timeline' : 'Chat__Timeline--Small'}>
 
                     { messages.length > 0 ? 
                         messages.map((d) =>

@@ -1,5 +1,6 @@
 import Message from './Message'
 import ChatTop from './Chat_Top'
+import SendBar from './Send_Bar'
 import spServices from '../../service/SP_API'
 import { useState, useEffect, useRef } from 'react'
 import '../../styles/components/Chat/Chat.sass'
@@ -55,11 +56,6 @@ function Chat(){
         }
     }
 
-    function enterClick(event){
-        if (event.key === 'Enter') {
-          getAnswer(question)
-        }
-    }
 
     useEffect(() => {addMessage(newMessageInfo)},[newMessageInfo])
     useEffect(() => {if(messagesRef.current){messagesRef.current.scrollTop = messagesRef.current.scrollHeight}}, [messages])
@@ -70,7 +66,6 @@ function Chat(){
             <div className={open ? 'Chat' : 'Chat--closed'}>
 
                 <ChatTop expanded={expanded} setExpanded={setExpanded}/>
-                
                 <h1 className='Chat__Tittle'>🖖 Como posso ajudar?</h1>
 
                 <div ref={messagesRef} className={expanded ? 'Chat__Timeline' : 'Chat__Timeline--Small'}>
@@ -89,12 +84,7 @@ function Chat(){
                         <h2 className='Chat__Timeline__Text'>Role para cima <img src='icons/Arrow_Turn_Up.svg'/>para ver o histórico</h2>
                     }
                 </div>
-                <div className='Chat__Send_Bar'>
-                    <input className='Chat__Send_Bar_Input' placeholder='Digite sua dúvida' value={question} onChange={e => setQuestion(e.target.value)} onKeyDown={enterClick}/>
-                    <button className='Chat__Send_Bar__Button' onClick={async() => {await getAnswer(question)}}>
-                        <img className='Chat__Send_Bar__Button__Icon' src='icons/Send_Button_Icon.svg' alt='Send_Button_Icon'/>
-                    </button>
-                </div>
+                <SendBar question={question} setQuestion={setQuestion} getAnswer={getAnswer}/>
                 
 
             </div>

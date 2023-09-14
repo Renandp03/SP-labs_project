@@ -1,0 +1,42 @@
+@use '../../variables'
+
+.Send_Bar
+    display: flex
+    align-items: flex-start
+    gap: 8px
+    align-self: stretch
+
+    width: 100%
+
+    position: absolute
+    bottom: 0
+    left: 0
+    padding: 16px 16px
+
+.Send_Bar__Input
+    flex-grow: 1
+    font-size: 12px
+    padding: 12.5px 16px
+    border-radius: 16px
+    border: 1px solid variables.$color-dark-gray
+    &::placeholder
+        opacity: 100%
+        color: variables.$color-dark
+
+.Send_Bar__Button
+    width: 50px
+    height: 40px
+    border: none
+
+    display: flex
+    align-items: center
+    justify-content: center
+    
+    border-radius: 16px
+    background: variables.$color-primary
+
+    &:hover
+        background: variables.$color-primary--dark
+
+        .Chat__Send_Bar__Button__Icon
+            transform: rotate(-45deg) 

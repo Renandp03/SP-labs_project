@@ -1,0 +1,39 @@
+@use '../../variables'
+
+.Message_Space--Chat,
+.Message_Space--User
+    display: flex
+    align-items: flex-start
+    justify-content: center
+    gap: 4px
+
+
+.Message_Space__Text
+    border: 1px solid variables.$color-light-gray
+    border-radius: 8px
+    padding: 4px 8px
+
+.Message_Space--User
+    justify-content: flex-end
+    .Message_Space__Text
+        border: 1px solid variables.$color-gray-3
+        border-radius: 16px 16px 0px 16px
+        margin-left: 62px
+
+.Message_Space--Chat
+    justify-content: flex-start
+    img
+        width: 24px
+        height: 24px
+    .Message_Space__Text
+        border-radius: 0px 16px 16px 16px
+        background: variables.$color-light-gray
+        margin-right: 52px
+
+.Message_Space__Text
+    color: variables.$color-dark
+    font-size: 12px
+    font-style: normal
+    font-weight: 400
+    line-height: normal 
+    padding: 8px 16px

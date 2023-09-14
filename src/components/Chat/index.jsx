@@ -1,7 +1,8 @@
-import axios from 'axios'
-import spServices from '../service/SP_API'
+import Message from './Message'
+import ChatTop from './Chat_Top'
+import spServices from '../../service/SP_API'
 import { useState, useEffect, useRef } from 'react'
-import '../styles/components/Chat.sass'
+import '../../styles/components/Chat/Chat.sass'
 
 function Chat(){
 
@@ -15,10 +16,6 @@ function Chat(){
     function openChat(){
         setExpanded(false)
         setOpen(!open)
-    }
-
-    function expandChat(){
-        setExpanded(!expanded)
     }
 
     function formatDate(date) {
@@ -71,18 +68,9 @@ function Chat(){
         <>
             <div className={open ? 'Open_Chat_button--Open' : 'Open_Chat_button'} onClick={openChat}/>
             <div className={open ? 'Chat' : 'Chat--closed'}>
-                <div className='Chat__Top'>
-                    <img src='/imgs/Chat_Avatar.svg' alt='avatar img' className='Chat__Top__Avatar'/>
-                    
-                    <button className='Chat__Top__Button' onClick={expandChat}>
-                        {
-                            expanded ? 
-                            <>Recolher <img src='/icons/Retract_Button_Icon.svg'/></> :
-                            <>Expandir <img src='/icons/Expand_Button_Icon.svg'/></>
-                        }
-                     </button> 
-                    
-                </div>
+
+                <ChatTop expanded={expanded} setExpanded={setExpanded}/>
+                
                 <h1 className='Chat__Tittle'>🖖 Como posso ajudar?</h1>
 
                 <div ref={messagesRef} className={expanded ? 'Chat__Timeline' : 'Chat__Timeline--Small'}>
@@ -92,12 +80,7 @@ function Chat(){
                         <div className='Chat__Timeline__Date'>
                             <p className='Chat__Timeline__Date__Message'>{d.date}</p>
                             {d.messages.map((m) => 
-                                <div className={m.author == 'user' ? 'Chat__Timeline__Message_Space--User_Message' : 'Chat__Timeline__Message_Space--Chat_message'}>
-                                    {m.author == 'chat' && <img src="imgs/Chat_Avatar.svg" alt="Chat_Avatar"/>}
-                                    <p className='Chat__Timeline__Message_Space__Text'>
-                                        {m.message}
-                                    </p>
-                                </div>
+                                <Message author={m.author} message={m.message}/>
                             )}
                             
                         </div> 

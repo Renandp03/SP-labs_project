@@ -5,7 +5,6 @@ const URL = import.meta.env.VITE_URL
 async function getCases(){
     try {
         const res = await axios.get(`${URL}/cases`)
-        console.log( res.data)
         return res.data.cases
     } catch (err) {
         console.log(err)

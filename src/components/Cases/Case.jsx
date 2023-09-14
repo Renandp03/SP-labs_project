@@ -1,4 +1,4 @@
-import '../../styles/components/Cases/Case.sass'
+import './styles/Case.sass'
 
 function Case(props){
 

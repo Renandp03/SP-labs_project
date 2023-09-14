@@ -1,4 +1,4 @@
-import '../../styles/components/Chat/Chat_Top.sass'
+import './styles/Chat_Top.sass'
 function ChatTop(props){
 
     const {expanded,setExpanded} = props

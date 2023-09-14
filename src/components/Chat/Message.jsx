@@ -1,4 +1,4 @@
-import '../../styles/components/Chat/Messages.sass'
+import './styles/Messages.sass'
 
 function Message(props){
     const {author,message} = props

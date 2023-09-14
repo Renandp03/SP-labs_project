@@ -1,5 +1,5 @@
 import Header from './Header'
-import '../styles/components/Hero-Section.sass'
+import '../../styles/components/Hero-Section.sass'
 
 function Hero_Section(){
     return(

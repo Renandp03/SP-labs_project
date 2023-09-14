@@ -1,4 +1,4 @@
-import '../../styles/components/Chat/Send_Bar.sass'
+import './styles/Send_Bar.sass'
 
 function SendBar(props){
     const {question,setQuestion, getAnswer} = props

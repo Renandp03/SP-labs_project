@@ -1,7 +1,7 @@
 import Case from './Case'
 import spServices from '../../service/SP_API'
 import { useState, useEffect } from 'react'
-import '../../styles/components/Cases/Cases.sass'
+import './styles/Cases.sass'
 
 function Cases(){
 

@@ -3,7 +3,7 @@ import ChatTop from './Chat_Top'
 import SendBar from './Send_Bar'
 import spServices from '../../service/SP_API'
 import { useState, useEffect, useRef } from 'react'
-import '../../styles/components/Chat/Chat.sass'
+import './styles/Chat.sass'
 
 function Chat(){
 

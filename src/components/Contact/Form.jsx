@@ -1,12 +1,14 @@
-import '../../styles/components/Contact.sass'
+import './styles/Form.sass'
 
-function Contact(props){
+function Form(props){
 
     const {
         name,
         setName,
         email,
         setEmail,
+        segment,
+        setSegment,
         description,
         setDescription,
         accepted,
@@ -42,4 +44,4 @@ function Contact(props){
     )
 }
 
-export default Contact
+export default Form

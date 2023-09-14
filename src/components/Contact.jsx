@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import axios from 'axios'
+import spServices from '../service/SP_API'
 
 import '../styles/components/Contact.sass'
 

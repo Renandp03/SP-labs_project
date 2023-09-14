@@ -1,4 +1,5 @@
 import axios from 'axios'
+import spServices from '../service/SP_API'
 import { useState, useEffect, useRef } from 'react'
 import '../styles/components/Chat.sass'
 
@@ -44,18 +45,16 @@ function Chat(){
     }
 
     async function getAnswer(userQuestion){
-        const URL = import.meta.env.VITE_URL
-        const body = {question:userQuestion}
+
+        if(!userQuestion) return null
         setQuestion('')
-        if(!body.question) {console.log('Pergunta aí, menó'); return null}
 
         try {
             createMessage('user',userQuestion)
-            const res = await axios.post(`${URL}/chat`,body)
-            const chatMessage = res.data
+            const chatMessage = await spServices.getChatAnswer(userQuestion)
             createMessage('chat',chatMessage)
         } catch (err) {
-            console.log(err.name)
+            console.log(err)
         }
     }
 

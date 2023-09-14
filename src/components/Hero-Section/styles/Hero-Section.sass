@@ -1,0 +1,53 @@
+@use '../../../styles/variables'
+
+.Hero_Section
+    display: flex
+    flex-direction: column
+    justify-content: center
+    color: variables.$color-hero-text
+    height: 100vh
+    padding: 0px variables.$padding-horizontal
+    box-sizing: border-box
+    position: relative
+    @media( max-width: variables.$break-point)
+        padding: 0px variables.$padding-horizontal-mobile
+
+.Hero_Section__bg
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100vh
+    background: black
+    z-index: -3
+
+.Hero_Section__bg__Img
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    object-fit: cover
+    z-index: -3
+
+.Hero_Section__bg__Dark
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    z-index: -3
+    opacity: .5
+    background: #1e1e1e
+
+.Hero_Section__bg__Dark--mix
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    z-index: -3
+    mix-blend-mode: color
+    background: #1e1e1e
+
+ 

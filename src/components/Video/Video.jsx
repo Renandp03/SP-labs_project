@@ -1,4 +1,4 @@
-import '../../styles/components/Video.sass'
+import './styles/Video.sass'
 
 function Video(){
     return(

@@ -1,5 +1,6 @@
 import Header from './Header'
-import '../../styles/components/Hero-Section.sass'
+import Hero from './Hero'
+import './styles/Hero-Section.sass'
 
 function Hero_Section(){
     return(
@@ -10,11 +11,7 @@ function Hero_Section(){
                 <div className='Hero_Section__bg__Dark--mix'/>
             </div>
             <Header/>
-            <div className="Hero">
-                <h1 className="Hero__Title">Imagine, <span className='Hero__Title__Wrap'>crie,</span> <br/> implemente e <span className="Hero__Title--Italic">evolua</span></h1>
-                <p className="Hero__Subtitle">Porque não basta resolver apenas os conflitos do mundo do direito.</p>
-                <a href='#Cases'><button className='Hero__button'>INICIE A SUA JORNADA</button></a>
-            </div>
+            <Hero/>
         </div>
     )
 }

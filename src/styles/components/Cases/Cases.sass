@@ -1,4 +1,4 @@
-@use '../variables'
+@use '../../variables'
 
 .Cases
     position: relative
@@ -48,42 +48,3 @@
     font-weight: variables.$second-text-weight
     line-height: variables.$second-text-line-height
     letter-spacing: variables.$second-text-letter-spacing
-
-.Case 
-    width: auto
-    min-width: 330px
-    height: auto
-    display: flex
-    flex-direction: column
-    gap: 16px
-    
-.Case__Title
-    font-size: 24px
-    font-weight: 700
-    line-height: 36px
-    letter-spacing: -0.36px   
-
-.Case__Button
-    display: flex
-    justify-content: center
-    align-items: center
-    padding: 8px 24px
-    gap: 8px
-    background: none
-    max-width: 160px
-    color: variables.$color-cases-text
-    font-size: 14px
-    font-weight: 500
-    line-height: 150%
-    text-transform: uppercase
-    box-sizing: border-box
-    border-radius: 4px
-    border: 1px solid variables.$color-case-border-button
-    &:hover
-        padding: 8px 22px
-        gap: 12px
-        border: 1px solid variables.$color-case-border-hover-button
-
-.Button__Icon
-    width: 24px
-    height: 24px

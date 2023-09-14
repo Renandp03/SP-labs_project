@@ -1,6 +1,7 @@
-import '../styles/components/Cases.sass'
-import spServices from '../service/SP_API'
+import Case from './Case'
+import spServices from '../../service/SP_API'
 import { useState, useEffect } from 'react'
+import '../../styles/components/Cases/Cases.sass'
 
 function Cases(){
 
@@ -23,14 +24,8 @@ function Cases(){
                 <h1 className='Cases__Title_Space__Title'>Problemas complexos.<br/>Soluções <span className='Cases__Title_Space_Title--line-through'>complexas</span> <span className='Cases__Title_Space_Title--italic'>criativas_</span></h1>
                 <p className='Case__Title_Space__Subtitle'>Confira nossos cases de sucesso que vão além do mundo juridico.</p>
             </div>
-            {
-            cases.map((c) => 
-            <div className='Case'>
-                <h2 className='Case__Title'>{c.title}</h2>
-                <p className='Case__text'>{c.description}</p>
-                <button className='Case__Button'><a href={c.link}>Saiba mais</a><img className='Button__Icon' src='icons/arrow-right.svg'/></button>
-            </div>)
-            }       
+            {cases.map((c) => 
+            <Case title={c.title} description={c.description} link={c.link}/>)}       
         </div>
     )
 }

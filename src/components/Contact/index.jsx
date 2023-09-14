@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import spServices from '../service/SP_API'
+import spServices from '../../service/SP_API'
 
-import '../styles/components/Contact.sass'
+import '../../styles/components/Contact.sass'
 
 function Contact(){
 
@@ -25,7 +25,7 @@ function Contact(){
             setDescription('')
             setAccepted(false)
         } catch (err) {
-            
+            console.log(err)
         }
     }
 

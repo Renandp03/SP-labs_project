@@ -2,6 +2,16 @@ import axios from "axios"
 
 const URL = import.meta.env.VITE_URL
 
+async function getCases(){
+    try {
+        const res = await axios.get(`${URL}/cases`)
+        console.log( res.data)
+        return res.data.cases
+    } catch (err) {
+        console.log(err)
+    }
+}
+
 async function sendContact(userInfo,confirmation){
     const body = userInfo
     if(!userInfo.name || !confirmation) return null
@@ -28,5 +38,5 @@ async function getChatAnswer(userQuestion){
     }
 }
 
-const spServices = {getChatAnswer,sendContact}
+const spServices = {getCases,sendContact,getChatAnswer}
 export default spServices

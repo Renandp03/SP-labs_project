@@ -1,5 +1,5 @@
 import '../styles/components/Cases.sass'
-import axios from 'axios'
+import spServices from '../service/SP_API'
 import { useState, useEffect } from 'react'
 
 function Cases(){
@@ -7,10 +7,12 @@ function Cases(){
     const [cases,setCases] = useState([])
 
     async function getCases(){
-        const URL = import.meta.env.VITE_URL
-        axios.get(`${URL}/cases`)
-        .then((res) => {setCases(res.data.cases)})
-        .catch((err) => console.log(err.name)) 
+        try {
+            const newCases = await spServices.getCases()
+            setCases(newCases)
+        } catch (err) {
+            console.log(err)
+        }
     }
 
     useEffect(()=>{getCases()},[])

@@ -6,6 +6,7 @@ function ChatTop(props){
     function expandChat(){
         setExpanded(!expanded)
     }
+    
     return(
         <div className='Chat__Top'>
                     <img src='/imgs/Chat_Avatar.svg' alt='avatar img' className='Chat__Top__Avatar'/>

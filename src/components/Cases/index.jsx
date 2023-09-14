@@ -5,6 +5,7 @@ import './styles/Cases.sass'
 
 function Cases(){
 
+    
     const [cases,setCases] = useState([])
 
     async function getCases(){
@@ -21,7 +22,8 @@ function Cases(){
     return(
         <div className='Cases' id='Cases'>
             <div className='Cases__Title_Space'>
-                <h1 className='Cases__Title_Space__Title'>Problemas complexos.<br/>Soluções <span className='Cases__Title_Space_Title--line-through'>complexas</span> <span className='Cases__Title_Space_Title--italic'>criativas_</span></h1>
+                <h1 className='Cases__Title_Space__Title'>Problemas complexos.<br/>
+                    Soluções <span className='Cases__Title_Space_Title--line-through'>complexas</span> <span className='Cases__Title_Space_Title--italic'>criativas_</span></h1>
                 <p className='Case__Title_Space__Subtitle'>Confira nossos cases de sucesso que vão além do mundo juridico.</p>
             </div>
             {cases.map((c) => 

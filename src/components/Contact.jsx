@@ -12,15 +12,21 @@ function Contact(){
     const [accepted,setAccepted] = useState(false)
     const [message, setMessage] = useState()
 
-    function sendContact(e){
+    async function sendContact(e){
         e.preventDefault()
-        const URL = import.meta.env.VITE_URL
         const body = {name,email,segment,description}
-        if(!body.name) {console.log('Coloca o nome, menó'); return null}
-        if(!accepted) {console.log(`aceita os termos, ${body.name}`); return null}
-        axios.post(`${URL}/contact`,body)
-        .then((res) => {setMessage(res.data);console.log(res.data)})
-        .catch((err) => console.log(err.name))
+
+        try {
+            const res = await spServices.sendContact(body,accepted)
+            setMessage(res)
+            setName('')
+            setEmail('')
+            setSegment('')
+            setDescription('')
+            setAccepted(false)
+        } catch (err) {
+            
+        }
     }
 
 
